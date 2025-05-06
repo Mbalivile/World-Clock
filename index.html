@@ -138,8 +138,23 @@ function updateCity(event) {
   document.querySelector("#cities").appendChild(cityElement);
 }
 
-      updateTime();
-      setInterval(updateTime, 1000);
+     function updateTime() {
+  let cityElements = document.querySelectorAll(".city");
+  cityElements.forEach((element) => {
+    let cityName = element.querySelector("h2").innerText;
+    let timeZone = moment.tz.names().find((zone) =>
+      zone.includes(cityName.replace(" ", "_"))
+    );
+
+    if (!timeZone) return;
+
+    let cityTime = moment().tz(timeZone);
+    element.querySelector(".date").innerHTML = cityTime.format("MMMM Do YYYY");
+    element.querySelector(".time").innerHTML = cityTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  });
+}
 
       let citiesSelectElement = document.querySelector("#city");
       citiesSelectElement.addEventListener("change", updateCity);
