@@ -112,14 +112,14 @@
             "h:mm:ss [<small>]A[</small>]"
           );
         }
-       let EswatiniElement = document.querySelector("#Eswatini");
-        if (EswatiniElement) {
-          let EswatiniDateElement = EswatiniElement.querySelector(".date");
-          let EswatiniTimeElement = EswatiniElement.querySelector(".time");
-          let EswatiniTime = moment().tz("Africa/Eswatini");
+       let eswatiniElement = document.querySelector("#eswatini");
+        if (eswatiniElement) {
+          let eswatiniDateElement = eswatiniElement.querySelector(".date");
+          let eswatiniTimeElement = eswatiniElement.querySelector(".time");
+          let eswatiniTime = moment().tz("Africa/Mbabane");
 
-          EswatiniDateElement.innerHTML = Eswatini.format("MMMM Do YYYY");
-          EswatiniTimeElement.innerHTML = EswatiniTime.format(
+          eswatiniDateElement.innerHTML = eswatini.format("MMMM Do YYYY");
+          eswatiniTimeElement.innerHTML = eswatiniTime.format(
             "h:mm:ss [<small>]A[</small>]"
           );
         }
