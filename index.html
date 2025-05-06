@@ -114,7 +114,7 @@
         }
       }
 
-function updateCity(event) {
+   function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (!cityTimeZone) return;
 
@@ -125,9 +125,10 @@ function updateCity(event) {
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
 
-  let cityElement = document.createElement("city");
-  citiesElement.innerHTML = `
-    <div class="city"><div>
+  let cityElement = document.createElement("div");
+  cityElement.classList.add("city");
+  cityElement.innerHTML = `
+    <div>
       <h2>${cityName}</h2>
       <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
     </div>
@@ -137,7 +138,7 @@ function updateCity(event) {
   document.querySelector("#cities").appendChild(cityElement);
 }
 
-     function updateTime() {
+      function updateTime() {
   let cityElements = document.querySelectorAll(".city");
   cityElements.forEach((element) => {
     let cityName = element.querySelector("h2").innerText;
